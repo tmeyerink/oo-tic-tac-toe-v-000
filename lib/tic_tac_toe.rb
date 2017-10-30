@@ -75,13 +75,15 @@ class TicTacToe
   end
 
   def full?
-    @board.all? do |letter|
-      letter == "X" || letter == "O"
+    WIN_COMBINATIONS.all? do |tokens|
+      position_taken?(tokens[0])
     end
   end
 
   def draw?
-    full? == true && won? == nil
+    if !won? && full?
+      return true
+    end
   end
 
   def over?
