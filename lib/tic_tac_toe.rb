@@ -91,10 +91,12 @@ class TicTacToe
   end
 
   def winner
-    if won? == nil
-      return nil
-    else
-      return @board[won?[1]]
+    WIN_COMBINATIONS.detect do |winner|
+      if position_taken?(winner[0]) && (@board[winner[0]] == "X") && (@board[winner[1]] == "X") && (@board[winner[2]] == "X")
+        return "X"
+      elsif position_taken?(winner[0]) && (@board[winner[0]] == "O") && (@board[winner[1]] == "O") && (@board[winner[2]] == "O")
+        return "O"
+      end
     end
   end
 
