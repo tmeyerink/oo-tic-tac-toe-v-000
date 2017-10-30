@@ -87,7 +87,7 @@ class TicTacToe
   end
 
   def over?
-    draw? == true || won? != nil
+    won? || draw?
   end
 
   def winner
@@ -102,17 +102,18 @@ class TicTacToe
 
   def play
     counter = 0
+    
     while over? == false
       turn
       counter += 1
     end
 
-    if draw? == true
-      puts "Cat's Game!"
-    end
-
-    if won? != nil
+    if won? 
+      winner == "X" || winner == "O"
       puts "Congradulations! #{winner}!"
+    end
+  elsif draw? == true
+      puts "Cat's Game!"
     end
   end
 end
