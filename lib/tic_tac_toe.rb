@@ -110,7 +110,8 @@ class TicTacToe
       winner == "X" || winner == "O"
       puts "Congradulations! #{winner}!"
     end
-  elsif draw? == true
+      
+    if draw? == true
       puts "Cat's Game!"
     end
   end
